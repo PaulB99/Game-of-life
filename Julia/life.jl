@@ -19,10 +19,17 @@ end
 
 # A recursive function that runs the game of life. Args of grid, steps
 function life(grid, steps)
-    if steps <= 0
+    if steps <= 0  # Break if it reaches the end
         return
     end
-
+    for x in grid
+        liveneighbours = 0  # Find live neighbours
+        for i in -1:1
+            for j in -1:1
+                position[x]
+            end
+        end
+    end
     newgrid = grid
     for r in eachrow(newgrid)
         showline(r)
