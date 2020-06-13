@@ -1,11 +1,6 @@
 # A Julia implementation of Conway's game of life
 
-blinker = [0 0 0 0 0;
-           0 0 0 0 0;
-           0 1 1 1 0;
-           0 0 0 0 0;
-           0 0 0 0 0]
-
+# A function to display each line
 function showline(x)
     for i in x
         if i == 1
@@ -65,3 +60,26 @@ function life(grid, steps)
 
     life(newgrid, steps-1) # return ecursive call
 end
+
+# Pre-defined patterns
+
+# Oscillators
+blinker = [0 0 0 0 0;
+           0 0 0 0 0;
+           0 1 1 1 0;
+           0 0 0 0 0;
+           0 0 0 0 0]
+
+toad = [0 0 0 0 0 0;
+        0 0 0 0 0 0;
+        0 0 1 1 1 0;
+        0 1 1 1 0 0;
+        0 0 0 0 0 0;
+        0 0 0 0 0 0]
+
+beacon = [0 0 0 0 0 0;
+          0 1 1 0 0 0;
+          0 1 1 0 0 0;
+          0 0 0 1 1 0;
+          0 0 0 1 1 0;
+          0 0 0 0 0 0]
