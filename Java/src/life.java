@@ -10,11 +10,19 @@ public class life {
 			int[][] newgrid = grid;
 			for(int i = 0; i<grid.length; i++) {
 				for(int j = 0; j<grid[1].length; j++) {
-					if (neighbours(i, j, grid) == 0) {
-						
+					System.out.println(neighbours(i, j, grid));
+					if ((neighbours(i, j, grid) == 2 || neighbours(i, j, grid) == 3) && grid[i][j] == 1) {
+						newgrid[i][j] = 1; // Cell survives 
+					}
+					else if (neighbours(i, j, grid) == 3 && grid[i][j] == 0) {
+						newgrid[i][j] = 1; // Cell is born
+					}
+					else {
+						newgrid[i][j] = 0; // Else the cell dies
 					}
 				}
 			}
+			grid = newgrid; // Set the current grid as newgrid for the next iteration
 			display(grid);
 			steps--;
 		}
@@ -40,6 +48,19 @@ public class life {
 	// Finds the number of neighbours of a cell
 	static int neighbours(int x, int y, int[][] grid) {
 		int neighbours = 0;
+		for(int i = -1; i<1; i++) {
+			for(int j = -1; j<1; j++) {
+				if (i == 0 && j == 0) {  // Ignore centre
+					continue;
+				}
+				else if (x + i < 0 || y + j < 0) // goes out of bounds
+	                continue;
+	            else if (x + i > grid.length || y + j > grid[0].length)
+	                continue;
+	            else if (grid[x+i][y+j] == 1) // valid position, now check if it is live
+	                neighbours += 1;
+			}
+		}
 		return neighbours;
 	}
 
