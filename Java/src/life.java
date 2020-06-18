@@ -1,7 +1,7 @@
 // A Java implementation of Conway's game of life
 public class life {
 	public static void main(String[] args) {  // Args should be grid, 
-		runLife(blinker, 3);
+		runLife(beacon, 5);
 	}
 	
 	// Run the game
@@ -73,5 +73,23 @@ public class life {
 		{0, 0, 1, 0, 0},
 		{0, 0, 1, 0, 0},
 		{0, 0, 0, 0, 0}
+	};
+	
+	static int[][] toad = new int[][] {
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 1, 1, 1, 0},
+		{0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0}
+	};
+	
+	static int[][] beacon = new int[][] {
+		{0, 0, 0, 0, 0, 0},
+		{0, 1, 1, 0, 0, 0},
+		{0, 1, 1, 0, 0, 0},
+		{0, 0, 0, 1, 1, 0},
+		{0, 0, 0, 1, 1, 0},
+		{0, 0, 0, 0, 0, 0}
 	};
 }
