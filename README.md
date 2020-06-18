@@ -11,3 +11,4 @@ Conway's game of life was created by John Horton Conway in 1970. It is a zero pl
 There are many well known patterns in this game, I will implement them in each language I implement the game in. 
 So far, I have implemented the game of life in:
 * Julia
+* Java
