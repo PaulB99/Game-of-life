@@ -7,10 +7,9 @@ public class life {
 	// Run the game
 	public static void runLife(int[][] grid, int steps) {
 		while(steps > 0) {
-			int[][] newgrid = grid;
+			int[][] newgrid = new int[grid.length][grid[0].length];
 			for(int i = 0; i<grid.length; i++) {
 				for(int j = 0; j<grid[1].length; j++) {
-					System.out.println(neighbours(i, j, grid));
 					if ((neighbours(i, j, grid) == 2 || neighbours(i, j, grid) == 3) && grid[i][j] == 1) {
 						newgrid[i][j] = 1; // Cell survives 
 					}
@@ -48,17 +47,20 @@ public class life {
 	// Finds the number of neighbours of a cell
 	static int neighbours(int x, int y, int[][] grid) {
 		int neighbours = 0;
-		for(int i = -1; i<1; i++) {
-			for(int j = -1; j<1; j++) {
-				if (i == 0 && j == 0) {  // Ignore centre
+		for(int i = -1; i<=1; i++) {
+			for(int j = -1; j<=1; j++) {
+				if ((i == 0) && (j == 0)) {  // Ignore centre
 					continue;
 				}
-				else if (x + i < 0 || y + j < 0) // goes out of bounds
+				else if ((x + i < 0) || (y + j < 0)) { // goes out of bounds
 	                continue;
-	            else if (x + i > grid.length || y + j > grid[0].length)
-	                continue;
-	            else if (grid[x+i][y+j] == 1) // valid position, now check if it is live
-	                neighbours += 1;
+				}
+	            else if ((x + i >= grid.length) ||( y + j >= grid[0].length)) {
+	            	continue;
+	            }
+	            else if ((grid[x+i][y+j] == 1)) {// valid position, now check if it is live
+	                neighbours++;
+	            }
 			}
 		}
 		return neighbours;
